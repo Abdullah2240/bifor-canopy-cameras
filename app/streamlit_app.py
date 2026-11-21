@@ -100,11 +100,27 @@ def logistic(t, lo, hi, t0, k):
     return lo + (hi - lo) / (1 + np.exp(-k * (t - t0)))
 
 
+@st.cache_data(show_spinner=False)
+def _b64(path: str) -> str:
+    import base64
+    return base64.b64encode(Path(path).read_bytes()).decode()
+
+
+def show_img(target, path, caption=""):
+    """Inline the image as data so it does not depend on the server's media endpoint."""
+    p = Path(path)
+    if not p.exists():
+        return
+    cap = f"<div class='small' style='margin-top:.3rem'>{caption}</div>" if caption else ""
+    target.markdown(f"<img src='data:image/png;base64,{_b64(str(p))}' alt='{caption}' "
+                    f"style='width:100%;height:auto;border-radius:6px;display:block'>{cap}", unsafe_allow_html=True)
+
+
 def figure(path, caption):
     p = DATA / "figures" / f"{path}.png"
     if p.exists():
         with st.container(border=True):
-            st.image(str(p), caption=caption, width="stretch")
+            show_img(st, p, caption)
 
 
 def chart_layout(fig, y_title, height=420):
@@ -174,7 +190,7 @@ if page == "Overview":
         f6 = frames[frames.camera == "A6"]
         cols = st.columns(len(f6) or 1)
         for col, r in zip(cols, f6.itertuples()):
-            col.image(str(DATA / "frames" / f"A6_{r.date}_fc.png"), caption=dt(r.date), width="stretch")
+            show_img(col, DATA / "frames" / f"A6_{r.date}_fc.png", dt(r.date))
 
 # ---------------------------------------------------------------- Assumptions
 elif page == "Assumptions":
@@ -323,9 +339,8 @@ elif page == "What the cameras see":
         g = frames[frames.camera == cam]
         for r in g.itertuples():
             c1, c2 = st.columns(2)
-            c1.image(str(DATA / "frames" / f"{cam}_{r.date}_fc.png"), caption=f"{dt(r.date)}, {r.time_utc} UTC",
-                     width="stretch")
-            c2.image(str(DATA / "frames" / f"{cam}_{r.date}_ndvi.png"), caption="NDVI", width="stretch")
+            show_img(c1, DATA / "frames" / f"{cam}_{r.date}_fc.png", f"{dt(r.date)}, {r.time_utc} UTC")
+            show_img(c2, DATA / "frames" / f"{cam}_{r.date}_ndvi.png", "NDVI")
 
 # ---------------------------------------------------------------- Simulations
 elif page == "Simulations":
