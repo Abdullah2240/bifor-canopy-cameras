@@ -1,0 +1,15 @@
+[project]
+name = "bifor"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy", "pandas", "pyarrow", "scipy", "scikit-image", "tifffile", "imagecodecs",
+  "pillow", "pvlib", "httpx", "typer", "duckdb", "matplotlib", "streamlit", "prosail",
+]
+
+[project.scripts]
+bifor = "bifor.cli:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

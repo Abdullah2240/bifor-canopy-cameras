@@ -1,0 +1,21 @@
+[theme]
+font = "sans-serif"
+headingFont = "serif"
+
+[theme.light]
+primaryColor = "#2E6B3A"
+backgroundColor = "#F7F5EF"
+secondaryBackgroundColor = "#ECE8DD"
+textColor = "#1E2A20"
+
+[theme.dark]
+primaryColor = "#8CC08E"
+backgroundColor = "#121613"
+secondaryBackgroundColor = "#1C221D"
+textColor = "#E4E7DF"
+
+[client]
+toolbarMode = "viewer"
+
+[browser]
+gatherUsageStats = false

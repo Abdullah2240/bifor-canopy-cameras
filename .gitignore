@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+outputs/
+tests/fixtures/*.tiff
+tests/fixtures/*.png
+# internal working notes, not shipped
+CLAUDE-changelog.md
+docs/CLAUDE-changelog.md
+docs/status.md
+docs/decisions-made-by-professor.md
+docs/questions_*.md
+docs/message_to_professor.md
+docs/goal.md
+docs/BIFOR_season_report.html
+# site data: kept local, never pushed to this public repo
+tests/fixtures/**/*.tiff
+tests/fixtures/**/*.png
+app/data/
+docs/BIFoR_canopy_cameras_2026.html
+rois/*.npy
+docs/results.md
+docs/paper_findings.md
+docs/data_audit.md
+docs/patterns_summary.txt
+.streamlit/secrets.toml

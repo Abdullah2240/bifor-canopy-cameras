@@ -1,0 +1,12 @@
+index,status,doi,found_title,note
+WI/WBI,verified,10.1080/014311697217396,Estimation of plant water concentration by the reflectance Water Index WI (R900/R970),Penuelas et al. 1997 IJRS; matched by targeted title query
+ISI,verified,10.1080/01431161.2011.607195,New spectral vegetation indices based on the near-infrared shoulder wavelengths for remote detection of grassland phytomass,Vescovo et al. IJRS 33 (online 2011)
+SDr,verified,10.1371/journal.pone.0121462,Detection of Powdery Mildew in Two Winter Wheat Plant Densities and Prediction of Grain Yield Using Canopy Hyperspectral Reflectance,Cao et al. 2015 PLoS ONE
+kNDVI,verified,10.1126/sciadv.abc7447,A unified vegetation index for quantifying the terrestrial biosphere,Camps-Valls et al. 2021 Science Advances
+RVI / SR,verified,10.2307/1936256,Derivation of Leaf-Area Index from Quality of Light on the Forest Floor,Jordan 1969 Ecology
+TTVI,verified,10.3390/rs12010016,A Transformed Triangular Vegetation Index for Estimating Winter Wheat Leaf Area Index,Xing et al. Remote Sensing 12(1):16 (issue 2020)
+NDVI,no_doi,,,Rouse et al. 1974 NASA ERTS symposium report; no DOI exists
+REP-LE,no_doi,,,Guyot & Baret 1988 ISPRS/ESA conference paper; no DOI exists
+RVSI,no_doi,,,Merton & Huntington 1999 JPL AVIRIS workshop; no DOI exists
+DVI,no_doi,,,Richardson & Wiegand 1977 PE&RS 43:1541-1552; journal back issues not in Crossref
+NDI45,verified,10.3390/s110707063,Evaluation of Sentinel-2 Red-Edge Bands for Empirical Estimation of Green LAI and Chlorophyll Content,"Delegido et al. 2011 Sensors 11:7063 defines NDI45 = (B5-B4)/(B5+B4) i.e. 705/665 nm = NDI(704,665) here. The catalog formula (R755-R717)/(R755+R717) is ND705, so the catalog entry is mis-specified"

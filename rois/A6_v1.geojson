@@ -1,0 +1,107 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "canopy",
+    "note": "Whole view; camera looks down onto the canopy, no sky"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       0
+      ],
+      [
+       409,
+       0
+      ],
+      [
+       409,
+       217
+      ],
+      [
+       0,
+       217
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "canopy_upper",
+    "note": "Far half of the view"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       0
+      ],
+      [
+       409,
+       0
+      ],
+      [
+       409,
+       108
+      ],
+      [
+       0,
+       108
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "canopy_lower",
+    "note": "Near half of the view"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       108
+      ],
+      [
+       409,
+       108
+      ],
+      [
+       409,
+       217
+      ],
+      [
+       0,
+       217
+      ],
+      [
+       0,
+       108
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

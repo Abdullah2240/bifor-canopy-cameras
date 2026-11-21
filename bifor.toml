@@ -1,0 +1,75 @@
+[paths]
+raw_root = "D:/BIFOR"
+work_dir = "D:/BIFOR_work"
+calib_dir = "../BIFOR_analysis/calib"
+roi_dir = "rois"
+local_sample = "../Thermal Imagery"
+
+[site]
+lat = 52.801
+lon = -2.301
+# Filenames are UTC: frames run continuously through 01:00-02:00 on 29 Mar 2026,
+# an hour that does not exist in UK local time.
+filename_tz = "UTC"
+
+[cameras]
+057400066245 = "A5"
+057400066246 = "A6"
+
+[decode]
+sat_16bit = 65472
+sat_8bit = 255
+dark_hour_local = 2
+# Master dark per camera and bit depth: per-pixel median of the darkest nights.
+# Nights with a mean above this quantile of their group are left out
+# (late-May twilight, A5's bright December nights).
+master_dark_quantile = 0.4
+
+[qa]
+# Midwinter noon sun only reaches ~14 deg here.
+min_sun_elev = 10.0
+# Sunlit leaves clip in May-June; 0.10 would drop most June frames.
+max_sat_frac = 0.25
+# S7: a strong passing cloud moves light_ratio ~0.07 vs neighbours; real frames sit
+# below 0.043 at the 95th percentile.
+max_light_jump = 0.06
+# Off: total cloud cover is ~100% most hours and does not change within-day
+# NDVI scatter (pilot: median |dev| 0.008-0.012 at every cloud level).
+max_cloud_pct = 101.0
+max_precip_mm = 0.2
+# Frame offset from its own day median; a jump this big means the camera
+# was knocked during the day. Slow drift (A5 ~3 px Dec->May) is followed by the masks.
+max_shift_px = 4.0
+# Registration search window. Observed drift is -4..+1 px; the pylon
+# cross-bracing repeats every ~8 px, which a wider window latched onto.
+max_search_px = 5
+# Day offset used when no frame registers (typical drift, audit 2026-11-10).
+fallback_shift = { A5 = [-2.0, 0.0], A6 = [-2.0, 0.0] }
+# Fog/haze and low-light noise flatten the image. Set from 200 visually
+# labelled frames (D:/BIFOR_work/qa_labels_visual.csv): A5 catches 4/8 fog
+# frames at 2-5% false alarms (missed ones are light haze); A6 3/3 at <2%.
+min_sharpness = { A5 = 0.065, A6 = 0.08 }
+# Frost/snow: in leafless months only frost, snow or ice clips in the canopy
+# ROI. Catches 6/7 labelled frost frames at ~1% false alarms.
+max_sat_frac_leafless = 0.05
+leafless_months = [11, 12, 1, 2, 3]
+noon_window_min = 120
+band_tolerance_nm = 10.0
+
+[window]
+# Valid record = the 16-bit cube era. Data before this was excluded on site
+# guidance (gaps up to 70 h, A5 bright December nights, older 8-bit formats).
+start_utc = "2026-03-10T10:31:00Z"
+# Leafless baseline: record start to a week before green-up onset (26-27 Apr).
+leafless_end = "2026-04-20"
+
+[treatment]
+# Working assumption (unknown; see docs/assumptions_and_tenets.md T1).
+# eCO2 advances leaf-out ~3 d (Gao et al. 2026); A6 greens earlier.
+A5 = "ambient"
+A6 = "eCO2"
+
+[versions]
+code = "0.5.0"
+roi = "v1"
+qa = "2"

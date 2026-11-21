@@ -1,0 +1,199 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "canopy",
+    "note": "All oak canopy below the sky line, rows 0-185"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       0
+      ],
+      [
+       230,
+       0
+      ],
+      [
+       230,
+       30
+      ],
+      [
+       300,
+       60
+      ],
+      [
+       409,
+       80
+      ],
+      [
+       409,
+       185
+      ],
+      [
+       0,
+       185
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "canopy_upper",
+    "note": "Crowns above the pylon crossbars"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       0
+      ],
+      [
+       230,
+       0
+      ],
+      [
+       230,
+       30
+      ],
+      [
+       300,
+       60
+      ],
+      [
+       409,
+       80
+      ],
+      [
+       409,
+       100
+      ],
+      [
+       0,
+       100
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "canopy_lower",
+    "note": "Mid and lower crowns between pylons"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       100
+      ],
+      [
+       409,
+       100
+      ],
+      [
+       409,
+       185
+      ],
+      [
+       0,
+       185
+      ],
+      [
+       0,
+       100
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "understory",
+    "note": "Nearest strip, mostly understorey and stems"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0,
+       185
+      ],
+      [
+       409,
+       185
+      ],
+      [
+       409,
+       217
+      ],
+      [
+       0,
+       217
+      ],
+      [
+       0,
+       185
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "evergreen",
+    "note": "Evergreen patch, top left; a control that should stay flat through spring"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       65,
+       15
+      ],
+      [
+       100,
+       15
+      ],
+      [
+       100,
+       45
+      ],
+      [
+       65,
+       45
+      ],
+      [
+       65,
+       15
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
