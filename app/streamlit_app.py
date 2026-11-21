@@ -12,7 +12,11 @@ import plotly.graph_objects as go
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import importlib  # noqa: E402
+
 import content as C  # noqa: E402
+
+C = importlib.reload(C)  # pick up content changes on hot redeploys
 
 LOCAL_DATA = Path(os.environ.get("BIFOR_APP_DATA", Path(__file__).resolve().parent / "data"))
 DATA_REPO = "Abdullah2240/bifor-canopy-data"
