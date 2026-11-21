@@ -180,3 +180,39 @@ def camera_text(S) -> str:
             f"the published leaf-out effect; under Assumption T1 this is a comparison of size, not a test. The two "
             f"cameras' daily NDVI correlates at {N.get('rho_all', float('nan')):.2f}, so weather and light largely "
             f"cancel in the difference.")
+
+
+ROADMAP = [
+    ("1", "Methods and seasonal baseline", "Ready now",
+     "How to obtain a reliable seasonal record from tower snapshot hyperspectral cameras in a mature oak FACE forest.",
+     "The QA protocol and its seven corrected error sources; simulations of what the sensor can and cannot measure; "
+     "spring green-up dates; the two-week lag of chlorophyll behind leaf expansion; leaf-out detected from spectral "
+     "shape alone.",
+     "Nothing further. Can be drafted from this record.",
+     "A methods paper, and a reusable processing pipeline for other camera towers."),
+    ("2", "Elevated CO2 and spring green-up timing", "One input",
+     "Does elevated CO2 change when the mature oak canopy greens up?",
+     "The camera comparison is built and tested. With the measured noise, a shift of about 4 days between two views is "
+     "detectable (simulation S4).",
+     "Confirmation of which ring, and which treatment, each camera views. Ideally, one camera on an elevated and one on "
+     "an ambient ring with similar viewing angles.",
+     "A short paper on CO2 and spring phenology, or a section of route 1."),
+    ("3", "Elevated CO2 across the whole season", "Needs a season of imagery",
+     "Does elevated CO2 change the length of the canopy season, including autumn senescence?",
+     "A spring-and-autumn curve model is implemented and tested on simulated seasons. A reference panel is now in view, "
+     "so new imagery can be put in absolute reflectance.",
+     "Continuous imagery from leaf-out to leaf-fall (one full season), with the reference panel in view.",
+     "The main research paper: a full-season, sub-daily hyperspectral record of CO2 effects on a mature forest canopy, "
+     "comparable with satellite data."),
+    ("4", "Canopy chlorophyll and photosynthetic capacity", "Needs site measurements",
+     "Does red-edge chlorophyll from the towers track photosynthetic capacity and canopy warming under elevated CO2?",
+     "Red-edge indices are shown to be chlorophyll-driven (S1) and follow a clear seasonal course.",
+     "Site leaf gas exchange or photosynthetic capacity, leaf nitrogen and chlorophyll samples, and canopy temperature "
+     "for the same period.",
+     "A joint paper linking canopy spectra to the site's physiology measurements."),
+    ("5", "Early detection of oak powdery mildew", "Needs summer imagery and surveys",
+     "Can the tower cameras detect powdery mildew on oak before it is visible?",
+     "Simulation suggests red-band ratios respond at roughly 5–15% infected canopy (S5).",
+     "Summer imagery and field infection surveys on the same trees.",
+     "An applied paper on camera-based disease monitoring."),
+]

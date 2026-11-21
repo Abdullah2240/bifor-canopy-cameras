@@ -143,6 +143,9 @@ tenets = "".join(f"<div class='card'><div class='ch'><span class='k'>{k}</span><
 methods = "".join(f"<p><b>{h}.</b> {b}</p>" for h, b in C.methods(S))
 sims = "".join(f"<div class='sim'><h3>{t}</h3><p>{x}</p>{img(f, t)}</div>" for f, t, x in C.SIMS)
 qa_t = table(pd.DataFrame(C.QA_FIXES, columns=["Problem", "Effect if missed", "Correction"]))
+roadmap = "".join(f"<div class='card'><div class='ch'><span class='k'>Route {n}</span><b>{t}</b><span class='conf'>{st_}</span></div>"
+                  f"<p><b>Question.</b> {q}</p><p><b>In place now.</b> {now}</p><p><b>Unlocked by.</b> {nd}</p><p><b>Output.</b> {o}</p></div>"
+                  for n, t, st_, q, now, nd, o in C.ROADMAP)
 qs = "".join(f"<div class='card'><b>{q}</b><div>{b}</div></div>" for q, b in C.QUESTIONS)
 refs = "".join(f"<li>{t} <a href='{u}'>{u.replace('https://', '')}</a></li>" for t, u in C.REFERENCES)
 strip = "".join(f"<figure class='fr'><img src='{b64(DATA / 'frames' / f'{r.camera}_{r.date}_fc.png')}' "
@@ -194,7 +197,7 @@ roughly every 11 minutes. This report covers the valid record, {dt(W['first_day'
 sets out what the imagery alone can show, how it was obtained, and which questions it opens.</p>
 <nav class="toc"><a href="#glance">1 At a glance</a><a href="#assumptions">2 Assumptions</a><a href="#methods">3 Methods</a>
 <a href="#greenup">4 Green-up</a><a href="#eco2">5 eCO2 comparison</a><a href="#sims">6 Simulations</a>
-<a href="#qa">7 Data quality</a><a href="#questions">8 Open questions</a><a href="#refs">References</a></nav>
+<a href="#qa">7 Data quality</a><a href="#questions">8 Open questions</a><a href="#roadmap">9 Research roadmap</a><a href="#refs">References</a></nav>
 
 <div class="kpis">
 <div class="kpi"><div class="v">{W['days'].get('A5', 0)} / {W['days'].get('A6', 0)}</div><div class="l">days analysed, A5 / A6</div></div>
@@ -265,6 +268,10 @@ angles also differ (A5 oblique, A6 from above), and angle alone can move green-u
 <h2 id="questions">8 Open questions and curiosities</h2>
 <p>These are not conclusions. They are the questions this record raises, and what each would need.</p>
 {qs}
+
+<h2 id="roadmap">9 Research roadmap: from this record to publication</h2>
+<p>What this record already supports, and what each next step would need, ordered by how little new data each requires. None promises a result.</p>
+{roadmap}
 
 <h2 id="refs">References</h2>
 <ol class="small">{refs}</ol>

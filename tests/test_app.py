@@ -5,7 +5,7 @@ import pytest
 APP = Path(__file__).resolve().parents[1] / "app" / "streamlit_app.py"
 DATA = APP.parent / "data"
 PAGES = ["Overview", "Assumptions", "Methods", "Season explorer", "Leaves before chlorophyll", "eCO2 comparison",
-         "What the cameras see", "Simulations", "Data quality", "Index catalog", "Open questions"]
+         "What the cameras see", "Simulations", "Data quality", "Index catalog", "Open questions", "Research roadmap"]
 
 
 @pytest.mark.skipif(not (DATA / "summary.json").exists(), reason="app bundle not built")

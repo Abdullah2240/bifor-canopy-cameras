@@ -138,7 +138,7 @@ POWER = pd.DataFrame(S.get("power", []))
 
 PAGES = ["Overview", "Assumptions", "Methods", "Season explorer", "Leaves before chlorophyll",
          "eCO2 comparison", "What the cameras see", "Simulations", "Data quality", "Index catalog",
-         "Open questions"]
+         "Open questions", "Research roadmap"]
 with st.sidebar:
     st.markdown("### BIFoR canopy cameras")
     st.caption(f"Season 2026 · {dt(W['first_day'])} – {dt(W['last_day'])}")
@@ -388,3 +388,23 @@ elif page == "Open questions":
     for qn, body in Q:
         st.markdown(f"<div class='tenet'><b>{qn}</b><div class='small' style='margin-top:.35rem'>{body}</div></div>",
                     unsafe_allow_html=True)
+
+# ---------------------------------------------------------------- Roadmap
+elif page == "Research roadmap":
+    st.title("Research roadmap: from this record to publication")
+    st.markdown("<p class='lede'>What this record already supports, and what each next step would need. Routes are "
+                "ordered by how little new data they require. Each states what exists now, the one thing that unlocks "
+                "it, and the expected output; none promises a result.</p>", unsafe_allow_html=True)
+    for n, title, status, q, now, needs, out in C.ROADMAP:
+        st.markdown(f"<div class='tenet'><b class='k'>Route {n}</b><b>{title}</b><span class='conf'>{status}</span>"
+                    f"<div class='small' style='margin-top:.45rem'><b>Question.</b> {q}</div>"
+                    f"<div class='small'><b>In place now.</b> {now}</div>"
+                    f"<div class='small'><b>Unlocked by.</b> {needs}</div>"
+                    f"<div class='small'><b>Output.</b> {out}</div></div>", unsafe_allow_html=True)
+    st.subheader("What would move this forward")
+    NEEDS = ["**Ring and treatment for each camera** (route 2)",
+             "**Imagery from June onward**, with the reference panel in view (route 3)",
+             "**Site measurements for the same period**: gas exchange, leaf nitrogen and chlorophyll, canopy "
+             "temperature, and ground budburst dates (route 4, and validation for all routes)",
+             "**Summer field surveys of powdery mildew** (route 5)"]
+    st.markdown(chr(10).join(f"- {x}" for x in NEEDS))
